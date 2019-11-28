@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "game",
+  "version": "1.0.0",
+  "description": "a web based game",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wavebeem/game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wavebeem/game/issues"
+  },
+  "homepage": "https://github.com/wavebeem/game#readme",
+  "devDependencies": {
+    "file-loader": "^5.0.2",
+    "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "pixi.js": "^5.2.0"
+  }
+}
