@@ -6,11 +6,6 @@ module.exports = {
   module: {
     rules: [
       {
-        use: "file-loader",
-        include: path.join(__dirname, "assets"),
-        exclude: /\.json$/
-      },
-      {
         test: /\.ts$/,
         use: "ts-loader",
         include: path.join(__dirname, "src")

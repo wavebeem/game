@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "a web based game",
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

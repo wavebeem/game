@@ -1,7 +1,4 @@
-import { Application, Sprite, Spritesheet, AnimatedSprite } from "pixi.js";
-
-import aURL from "../assets/a.png";
-import aJSON from "../assets/a.json";
+import { Application, Texture, AnimatedSprite } from "pixi.js";
 
 function main() {
   const app = new Application({
@@ -9,32 +6,29 @@ function main() {
     width: 320,
     height: 240
   });
+  const aSprite = new AnimatedSprite([Texture.EMPTY]);
   function onLoad() {
-    const aSheet = new Spritesheet(
-      app.loader.resources[aURL].texture.baseTexture,
-      aJSON
-    );
-    aSheet.parse(() => {
-      const aSprite = new AnimatedSprite([
-        aSheet.textures["a.0"],
-        aSheet.textures["a.1"]
-      ]);
-      aSprite.animationSpeed = 5 / 60;
-      aSprite.play();
-      app.stage.addChild(aSprite);
-      function update() {
-        aSprite.x = x;
-        aSprite.y = y;
-      }
-      app.ticker.add(update);
-    });
+    aSprite.textures = [
+      app.loader.resources["assets/a1.png"].texture,
+      app.loader.resources["assets/a2.png"].texture
+    ];
+    aSprite.animationSpeed = 5 / 60;
+    aSprite.play();
+    app.stage.addChild(aSprite);
+    app.ticker.add(update);
   }
-  app.loader.add(aURL);
-  app.loader.load(onLoad);
+  function update() {
+    aSprite.x = x;
+    aSprite.y = y;
+  }
+  app.loader
+    .add("assets/a1.png")
+    .add("assets/a2.png")
+    .load(onLoad);
   document.body.append(app.view);
   let x = 0;
   let y = 0;
-  document.body.addEventListener("keydown", event => {
+  globalThis.addEventListener("keydown", event => {
     let preventDefault = true;
     const step = 16;
     switch (event.key) {
